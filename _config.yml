@@ -1,0 +1,101 @@
+# Jekyll Configuration for Trailmarks.io Documentation
+title: Trailmarks.io Documentation
+description: Technical and User Documentation for Trailmarks.io Application
+baseurl: ""
+url: "https://trailmarks-io.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Collections for different document types
+collections:
+  architecture:
+    output: true
+    permalink: /:collection/:name/
+  user-guide:
+    output: true
+    permalink: /:collection/:name/
+  howtos:
+    output: true
+    permalink: /:collection/:name/
+  faq:
+    output: true
+    permalink: /:collection/:name/
+
+# Default settings
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "architecture"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "user-guide"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "howtos"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "faq"
+    values:
+      layout: "page"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Language settings
+languages: ["de", "en"]
+default_lang: "de"
+
+# Navigation
+navigation:
+  - title: "Home"
+    url: "/"
+  - title: "Benutzerhandbuch"
+    url: "/user-guide/"
+  - title: "Architektur"
+    url: "/architecture/"
+  - title: "How-Tos"
+    url: "/howtos/"
+  - title: "FAQ"
+    url: "/faq/"
+
+navigation_en:
+  - title: "Home"
+    url: "/en/"
+  - title: "User Guide"
+    url: "/en/user-guide/"
+  - title: "Architecture"
+    url: "/en/architecture/"
+  - title: "How-Tos"
+    url: "/en/howtos/"
+  - title: "FAQ"
+    url: "/en/faq/"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - src/
+  - .asciidoctor/
+  - README.md

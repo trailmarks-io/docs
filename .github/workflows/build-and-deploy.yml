@@ -1,0 +1,235 @@
+name: Build and Deploy Documentation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1'
+        bundler-cache: true
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install PlantUML
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y plantuml graphviz
+        
+    - name: Install AsciiDoctor
+      run: |
+        gem install asciidoctor
+        gem install asciidoctor-diagram
+        gem install asciidoctor-pdf
+        
+    - name: Convert AsciiDoc to Markdown
+      run: |
+        # Create output directories
+        mkdir -p docs/de docs/en
+        
+        # Convert German documentation
+        echo "Converting German documentation..."
+        for file in src/de/**/*.adoc; do
+          if [ -f "$file" ]; then
+            # Get relative path and change extension
+            rel_path=${file#src/de/}
+            output_path="docs/de/${rel_path%.adoc}.md"
+            output_dir=$(dirname "$output_path")
+            
+            # Create output directory
+            mkdir -p "$output_dir"
+            
+            # Convert AsciiDoc to Markdown via HTML
+            asciidoctor -r asciidoctor-diagram -b html5 -o "${output_path%.md}.html" "$file"
+            
+            # Convert HTML to Markdown using pandoc
+            if command -v pandoc >/dev/null 2>&1; then
+              pandoc -f html -t markdown "${output_path%.md}.html" -o "$output_path"
+              rm "${output_path%.md}.html"
+            else
+              # Fallback: simple HTML to Markdown conversion
+              echo "---" > "$output_path"
+              echo "layout: page" >> "$output_path"
+              echo "title: $(basename "${file%.adoc}" | tr '-' ' ' | sed 's/\b\w/\U&/g')" >> "$output_path"
+              echo "lang: de" >> "$output_path"
+              echo "---" >> "$output_path"
+              echo "" >> "$output_path"
+              asciidoctor -b html5 -s -o - "$file" | sed 's/<[^>]*>//g' | sed '/^$/d' >> "$output_path"
+            fi
+          fi
+        done
+        
+        # Convert English documentation
+        echo "Converting English documentation..."
+        for file in src/en/**/*.adoc; do
+          if [ -f "$file" ]; then
+            # Get relative path and change extension
+            rel_path=${file#src/en/}
+            output_path="docs/en/${rel_path%.adoc}.md"
+            output_dir=$(dirname "$output_path")
+            
+            # Create output directory
+            mkdir -p "$output_dir"
+            
+            # Convert AsciiDoc to Markdown via HTML
+            asciidoctor -r asciidoctor-diagram -b html5 -o "${output_path%.md}.html" "$file"
+            
+            # Convert HTML to Markdown using pandoc
+            if command -v pandoc >/dev/null 2>&1; then
+              pandoc -f html -t markdown "${output_path%.md}.html" -o "$output_path"
+              rm "${output_path%.md}.html"
+            else
+              # Fallback: simple HTML to Markdown conversion
+              echo "---" > "$output_path"
+              echo "layout: page" >> "$output_path"
+              echo "title: $(basename "${file%.adoc}" | tr '-' ' ' | sed 's/\b\w/\U&/g')" >> "$output_path"
+              echo "lang: en" >> "$output_path"
+              echo "---" >> "$output_path"
+              echo "" >> "$output_path"
+              asciidoctor -b html5 -s -o - "$file" | sed 's/<[^>]*>//g' | sed '/^$/d' >> "$output_path"
+            fi
+          fi
+        done
+        
+    - name: Install pandoc
+      run: |
+        sudo apt-get install -y pandoc
+        
+    - name: Re-convert with pandoc
+      run: |
+        # Re-convert with pandoc for better formatting
+        for file in src/de/**/*.adoc; do
+          if [ -f "$file" ]; then
+            rel_path=${file#src/de/}
+            output_path="docs/de/${rel_path%.adoc}.md"
+            output_dir=$(dirname "$output_path")
+            mkdir -p "$output_dir"
+            
+            # Convert to HTML first, then to Markdown
+            asciidoctor -r asciidoctor-diagram -b html5 -o temp.html "$file"
+            
+            # Create front matter
+            echo "---" > "$output_path"
+            echo "layout: page" >> "$output_path"
+            echo "title: $(grep -m1 '^= ' "$file" | sed 's/^= //' || basename "${file%.adoc}")" >> "$output_path"
+            echo "lang: de" >> "$output_path"
+            echo "---" >> "$output_path"
+            echo "" >> "$output_path"
+            
+            # Convert HTML to Markdown
+            pandoc -f html -t markdown temp.html >> "$output_path"
+            rm temp.html
+          fi
+        done
+        
+        for file in src/en/**/*.adoc; do
+          if [ -f "$file" ]; then
+            rel_path=${file#src/en/}
+            output_path="docs/en/${rel_path%.adoc}.md"
+            output_dir=$(dirname "$output_path")
+            mkdir -p "$output_dir"
+            
+            # Convert to HTML first, then to Markdown
+            asciidoctor -r asciidoctor-diagram -b html5 -o temp.html "$file"
+            
+            # Create front matter
+            echo "---" > "$output_path"
+            echo "layout: page" >> "$output_path"
+            echo "title: $(grep -m1 '^= ' "$file" | sed 's/^= //' || basename "${file%.adoc}")" >> "$output_path"
+            echo "lang: en" >> "$output_path"
+            echo "---" >> "$output_path"
+            echo "" >> "$output_path"
+            
+            # Convert HTML to Markdown
+            pandoc -f html -t markdown temp.html >> "$output_path"
+            rm temp.html
+          fi
+        done
+        
+    - name: Create Jekyll collections
+      run: |
+        # Create collection files for Jekyll
+        
+        # German collections
+        mkdir -p _architecture _user-guide _howtos _faq
+        
+        if [ -f "docs/de/architecture/arc42-documentation.md" ]; then
+          cp "docs/de/architecture/arc42-documentation.md" "_architecture/arc42-documentation-de.md"
+        fi
+        
+        if [ -f "docs/de/user-guide/user-guide.md" ]; then
+          cp "docs/de/user-guide/user-guide.md" "_user-guide/user-guide-de.md"
+        fi
+        
+        if [ -f "docs/de/howtos/import-gps-data.md" ]; then
+          cp "docs/de/howtos/import-gps-data.md" "_howtos/import-gps-data-de.md"
+        fi
+        
+        if [ -f "docs/de/faq/general-faq.md" ]; then
+          cp "docs/de/faq/general-faq.md" "_faq/general-faq-de.md"
+        fi
+        
+        # English collections
+        if [ -f "docs/en/architecture/arc42-documentation.md" ]; then
+          cp "docs/en/architecture/arc42-documentation.md" "_architecture/arc42-documentation-en.md"
+        fi
+        
+        if [ -f "docs/en/user-guide/user-guide.md" ]; then
+          cp "docs/en/user-guide/user-guide.md" "_user-guide/user-guide-en.md"
+        fi
+        
+        if [ -f "docs/en/howtos/import-gps-data.md" ]; then
+          cp "docs/en/howtos/import-gps-data.md" "_howtos/import-gps-data-en.md"
+        fi
+        
+        if [ -f "docs/en/faq/general-faq.md" ]; then
+          cp "docs/en/faq/general-faq.md" "_faq/general-faq-en.md"
+        fi
+        
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+      
+    - name: Build with Jekyll
+      uses: actions/jekyll-build-pages@v1
+      with:
+        source: ./
+        destination: ./_site
+        
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

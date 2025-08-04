@@ -1,0 +1,158 @@
+= Frequently Asked Questions (FAQ)
+:doctype: book
+:toc: left
+:toclevels: 3
+:sectanchors:
+:sectlinks:
+
+== General Questions
+
+=== What is Trailmarks.io?
+
+Trailmarks.io is a web application for planning, tracking, and sharing outdoor routes such as hiking trails, bike tours, and other trails.
+
+=== Is Trailmarks.io free?
+
+Yes, the basic features of Trailmarks.io are available for free. Premium features are available for registered users.
+
+=== Which devices are supported?
+
+Trailmarks.io works on:
+
+* Desktop browsers (Chrome, Firefox, Safari, Edge)
+* Mobile browsers (iOS Safari, Android Chrome)
+* Progressive Web App (PWA) for mobile devices
+
+== Account and Login
+
+=== How do I create an account?
+
+. Visit https://trailmarks.io
+. Click "Sign Up"
+. Enter email and password
+. Confirm your email address
+. Log in
+
+=== I forgot my password
+
+. Go to the login page
+. Click "Forgot Password"
+. Enter your email address
+. Follow the instructions in the email
+
+=== Can I delete my account?
+
+Yes, you can delete your account in the account settings. Note that all your data will be permanently deleted.
+
+== Trail Management
+
+=== How many trails can I create?
+
+Free accounts can create up to 10 trails. Premium accounts have no limit.
+
+=== Can I keep trails private?
+
+Yes, you can set the visibility of each trail individually:
+
+* **Public**: Visible to everyone
+* **Unlisted**: Only accessible with direct link
+* **Private**: Only visible to you
+
+=== Which file formats are supported?
+
+* **GPX** (GPS Exchange Format)
+* **TCX** (Training Center XML)
+* **KML** (Keyhole Markup Language)
+* **FIT** (Flexible and Interoperable Data Transfer)
+
+== GPS and Navigation
+
+=== Why isn't GPS working?
+
+Common causes:
+
+* GPS permission not granted
+* Weak GPS signal (indoors)
+* Browser cache issues
+* Outdated browser
+
+**Solutions:**
+. Check permission in browser settings
+. Try outdoors
+. Clear browser cache
+. Update browser
+
+=== How accurate is GPS tracking?
+
+GPS accuracy depends on various factors:
+
+* **Optimal conditions**: 3-5 meter accuracy
+* **Urban areas**: 5-10 meters (building interference)
+* **Forested areas**: 10-20 meters (tree interference)
+
+=== Can I navigate offline?
+
+Yes, you can download trails for offline use. Offline navigation works with previously loaded map data.
+
+== Technical Issues
+
+=== The page won't load
+
+. Check your internet connection
+. Clear browser cache
+. Temporarily disable browser extensions
+. Try a different browser
+
+=== Trails are not displayed
+
+. Refresh the page
+. Check your filter settings
+. Make sure you're logged in
+. Contact support
+
+=== Upload issues
+
+If file uploads fail:
+
+. Check file size (max 10 MB)
+. Make sure the file format is supported
+. Try with a different file
+. Check your internet connection
+
+== Privacy and Security
+
+=== How is my data protected?
+
+* All data is transmitted encrypted (HTTPS)
+* Passwords are stored securely (hashing)
+* No sharing with third parties without your consent
+* GDPR compliant
+
+=== Can I export my data?
+
+Yes, you can export all your trail data in various formats:
+
+* GPX for GPS devices
+* JSON for developers
+* CSV for spreadsheets
+
+== Support
+
+=== How do I contact support?
+
+* **Email**: support@trailmarks.io
+* **Community Forum**: https://community.trailmarks.io
+* **GitHub Issues**: https://github.com/trailmarks-io/docs/issues
+
+=== How do I report bugs?
+
+. Go to our GitHub repository
+. Create a new issue
+. Describe the problem in detail
+. Add screenshots if helpful
+
+=== Where can I find more documentation?
+
+* link:../user-guide/user-guide.html[Complete User Guide]
+* link:../howtos/[How-To Guides]
+* link:../architecture/[Technical Documentation]

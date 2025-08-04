@@ -1,0 +1,118 @@
+= Benutzerhandbuch: Trailmarks.io
+:doctype: book
+:toc: left
+:toclevels: 3
+:sectanchors:
+:sectlinks:
+:sectnums:
+
+== Einführung
+
+Willkommen bei Trailmarks.io! Diese Anwendung hilft Ihnen dabei, Ihre Outdoor-Abenteuer zu planen, zu verfolgen und zu teilen.
+
+== Erste Schritte
+
+=== Konto erstellen
+
+. Besuchen Sie https://trailmarks.io
+. Klicken Sie auf "Registrieren"
+. Füllen Sie das Anmeldeformular aus
+. Bestätigen Sie Ihre E-Mail-Adresse
+. Loggen Sie sich ein
+
+=== Dashboard-Übersicht
+
+Nach der Anmeldung sehen Sie Ihr persönliches Dashboard mit:
+
+* **Meine Trails**: Ihre gespeicherten Routen
+* **Aktivitäten**: Letzte Aktivitäten
+* **Favoriten**: Ihre Lieblings-Trails
+* **Statistiken**: Ihre Trail-Statistiken
+
+== Trail-Management
+
+=== Neuen Trail erstellen
+
+. Klicken Sie auf "Neuer Trail"
+. Geben Sie einen Namen und eine Beschreibung ein
+. Wählen Sie die Trail-Kategorie (Wandern, Radfahren, etc.)
+. Planen Sie Ihre Route auf der Karte
+. Speichern Sie den Trail
+
+=== Trail bearbeiten
+
+. Öffnen Sie Ihren Trail
+. Klicken Sie auf "Bearbeiten"
+. Nehmen Sie Ihre Änderungen vor
+. Speichern Sie die Änderungen
+
+=== Trail teilen
+
+. Öffnen Sie den gewünschten Trail
+. Klicken Sie auf "Teilen"
+. Wählen Sie Ihre bevorzugte Freigabeoption:
+  * **Öffentlich**: Für alle sichtbar
+  * **Link teilen**: Nur mit Link zugänglich
+  * **Privat**: Nur für Sie sichtbar
+
+== Navigation und Karten
+
+=== Kartenansicht
+
+Die Kartenansicht bietet verschiedene Ebenen:
+
+* **Standard**: Grundkarte
+* **Satellit**: Satellitenbilder
+* **Terrain**: Topografische Karte
+* **Hybrid**: Kombination aus Satellit und Straßen
+
+=== GPS-Tracking
+
+. Aktivieren Sie GPS in Ihren Browsereinstellungen
+. Starten Sie das Tracking in der App
+. Folgen Sie Ihrer geplanten Route
+. Beenden Sie das Tracking nach Abschluss
+
+== Erweiterte Funktionen
+
+=== POI (Points of Interest)
+
+Fügen Sie interessante Punkte zu Ihren Trails hinzu:
+
+. Klicken Sie auf die Karte
+. Wählen Sie "POI hinzufügen"
+. Geben Sie Name und Beschreibung ein
+. Wählen Sie eine Kategorie (Restaurant, Aussichtspunkt, etc.)
+
+=== Offline-Nutzung
+
+. Laden Sie Trails für die Offline-Nutzung herunter
+. Aktivieren Sie den Offline-Modus
+. Nutzen Sie die App ohne Internetverbindung
+
+== Problembehandlung
+
+=== Häufige Probleme
+
+**GPS funktioniert nicht**
+* Überprüfen Sie Ihre Browserberechtigungen
+* Stellen Sie sicher, dass Sie sich im Freien befinden
+* Versuchen Sie, die Seite neu zu laden
+
+**Karte lädt nicht**
+* Überprüfen Sie Ihre Internetverbindung
+* Leeren Sie den Browser-Cache
+* Versuchen Sie einen anderen Browser
+
+**Trail wird nicht gespeichert**
+* Überprüfen Sie Ihre Internetverbindung
+* Stellen Sie sicher, dass Sie angemeldet sind
+* Kontaktieren Sie den Support bei anhaltenden Problemen
+
+== Support und Kontakt
+
+Für weitere Hilfe wenden Sie sich an:
+
+* **E-Mail**: support@trailmarks.io
+* **Community Forum**: https://community.trailmarks.io
+* **GitHub Issues**: https://github.com/trailmarks-io/docs/issues
