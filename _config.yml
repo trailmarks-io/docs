@@ -8,6 +8,7 @@ url: "https://trailmarks-io.github.io"
 markdown: kramdown
 highlighter: rouge
 theme: minima
+destination: dist
 
 # Collections for different document types
 collections:

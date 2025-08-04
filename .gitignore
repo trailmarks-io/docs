@@ -1,5 +1,5 @@
 # Jekyll and Ruby
-_site/
+dist/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
