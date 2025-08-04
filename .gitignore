@@ -1,0 +1,42 @@
+# Jekyll and Ruby
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+
+# AsciiDoc conversion temporary files
+*.html
+temp.html
+
+# Documentation build outputs
+docs/de/
+docs/en/
+
+# Node modules (if any)
+node_modules/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Backup files
+*~
+*.bak
+
+# Temporary files
+tmp/
+temp/
+
+# Bundle config
+.bundle/
+vendor/bundle/

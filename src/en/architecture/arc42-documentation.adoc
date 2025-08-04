@@ -1,0 +1,320 @@
+= Architecture Documentation: Trailmarks.io
+:doctype: book
+:toc: left
+:toclevels: 3
+:sectanchors:
+:sectlinks:
+:sectnums:
+:plantuml-server-url: http://www.plantuml.com/plantuml
+
+== Introduction and Goals
+
+=== Requirements Overview
+
+Trailmarks.io is a modern web application for tracking and managing trails (hiking trails, bike routes, etc.). The application enables users to plan, track, and share their routes with others.
+
+=== Quality Goals
+
+[cols="1,2,2"]
+|===
+|Priority |Quality Attribute |Scenario
+
+|1
+|Performance
+|The application should remain performant with 1000+ concurrent users
+
+|2
+|Usability
+|New users should be able to create their first route within 5 minutes
+
+|3
+|Scalability
+|The system should be horizontally scalable
+|===
+
+=== Stakeholders
+
+[cols="1,2,2"]
+|===
+|Role |Contact |Expectations
+
+|Product Owner
+|Product Owner Team
+|Functional requirements, Time-to-Market
+
+|Development Team
+|Development Team
+|Technical feasibility, Maintainability
+
+|End Users
+|Trail Enthusiasts
+|Easy operation, Reliability
+|===
+
+== Architecture Constraints
+
+=== Technical Constraints
+
+* Frontend: React/TypeScript
+* Backend: Node.js/TypeScript
+* Database: PostgreSQL
+* Cloud: AWS/Azure
+* CI/CD: GitHub Actions
+
+=== Organizational Constraints
+
+* Agile development with Scrum
+* Code reviews required
+* Automated tests (>80% coverage)
+
+== Context and Scope
+
+=== Business Context
+
+[plantuml, context-diagram, svg]
+----
+@startuml
+!include <C4/C4_Context>
+
+Person(user, "Trail User", "User of the Trailmarks.io application")
+System(trailmarks, "Trailmarks.io", "Trail tracking and management system")
+System_Ext(maps, "Maps Service", "Map service (e.g., OpenStreetMap)")
+System_Ext(weather, "Weather Service", "Weather service")
+System_Ext(social, "Social Media", "Social media integration")
+
+Rel(user, trailmarks, "Uses", "HTTPS")
+Rel(trailmarks, maps, "Fetches map data", "HTTPS/API")
+Rel(trailmarks, weather, "Fetches weather data", "HTTPS/API")
+Rel(trailmarks, social, "Shares content", "HTTPS/API")
+
+SHOW_LEGEND()
+@enduml
+----
+
+=== Technical Context
+
+[plantuml, technical-context, svg]
+----
+@startuml
+!include <C4/C4_Context>
+
+Person(user, "User", "Web Browser")
+System(webapp, "Trailmarks.io WebApp", "React Frontend")
+System(api, "Trailmarks.io API", "Node.js Backend")
+SystemDb(db, "Database", "PostgreSQL")
+System_Ext(cdn, "CDN", "Content Delivery Network")
+System_Ext(auth, "Auth Service", "Authentication Provider")
+
+Rel(user, webapp, "HTTPS")
+Rel(webapp, api, "HTTPS/REST")
+Rel(api, db, "SQL")
+Rel(webapp, cdn, "HTTPS")
+Rel(api, auth, "HTTPS/OAuth")
+
+SHOW_LEGEND()
+@enduml
+----
+
+== Solution Strategy
+
+=== Technology Decisions
+
+[cols="1,2,2"]
+|===
+|Area |Technology |Rationale
+
+|Frontend
+|React/TypeScript
+|Component-based, strong community, TypeScript for type safety
+
+|Backend
+|Node.js/Express
+|JavaScript stack, good performance, extensive ecosystem
+
+|Database
+|PostgreSQL
+|ACID compliance, good geo-data support, open source
+|===
+
+== Building Block View
+
+=== Level 1: System Containers
+
+[plantuml, container-diagram, svg]
+----
+@startuml
+!include <C4/C4_Container>
+
+Person(user, "Trail User")
+
+System_Boundary(trailmarks, "Trailmarks.io") {
+    Container(spa, "Single Page App", "React/TypeScript", "Provides the user interface")
+    Container(api, "API Application", "Node.js/Express", "Provides REST API")
+    ContainerDb(db, "Database", "PostgreSQL", "Stores user data, trails, etc.")
+}
+
+System_Ext(maps, "Maps Service")
+System_Ext(auth, "Auth Service")
+
+Rel(user, spa, "Uses", "HTTPS")
+Rel(spa, api, "API Calls", "HTTPS/JSON")
+Rel(api, db, "Reads/Writes", "SQL")
+Rel(api, maps, "Fetches maps", "HTTPS")
+Rel(api, auth, "Authenticates", "HTTPS/OAuth")
+
+SHOW_LEGEND()
+@enduml
+----
+
+=== Level 2: API Application Details
+
+[plantuml, component-diagram, svg]
+----
+@startuml
+!include <C4/C4_Component>
+
+Container_Boundary(api, "API Application") {
+    Component(controller, "REST Controllers", "Express", "Handles HTTP requests")
+    Component(service, "Business Logic", "TypeScript", "Implements business logic")
+    Component(repository, "Data Access", "TypeScript", "Data access layer")
+    Component(auth, "Auth Module", "TypeScript", "Authentication and authorization")
+}
+
+ContainerDb(db, "Database")
+System_Ext(extAuth, "External Auth")
+
+Rel(controller, service, "Uses")
+Rel(service, repository, "Uses")
+Rel(repository, db, "SQL")
+Rel(controller, auth, "Validates")
+Rel(auth, extAuth, "OAuth")
+
+SHOW_LEGEND()
+@enduml
+----
+
+== Runtime View
+
+=== Trail Creation Scenario
+
+[plantuml, sequence-diagram, svg]
+----
+@startuml
+actor User
+participant "React App" as UI
+participant "API Gateway" as API
+participant "Trail Service" as Service
+participant "Database" as DB
+
+User -> UI: Create new trail
+UI -> API: POST /api/trails
+API -> Service: createTrail(data)
+Service -> DB: INSERT trail
+DB --> Service: trail_id
+Service --> API: Trail created
+API --> UI: 201 Created
+UI --> User: Success message
+@enduml
+----
+
+== Deployment View
+
+=== Deployment Structure
+
+[plantuml, deployment-diagram, svg]
+----
+@startuml
+!include <C4/C4_Deployment>
+
+Deployment_Node(aws, "Amazon Web Services", "Cloud Provider") {
+    Deployment_Node(cdn, "CloudFront", "CDN") {
+        Container(static, "Static Files", "HTML/CSS/JS")
+    }
+    
+    Deployment_Node(ecs, "ECS Cluster", "Container Orchestration") {
+        Container(api1, "API Instance 1", "Node.js")
+        Container(api2, "API Instance 2", "Node.js")
+    }
+    
+    Deployment_Node(rds, "RDS", "Managed Database") {
+        ContainerDb(db, "PostgreSQL Database")
+    }
+}
+
+Rel(static, api1, "API Calls")
+Rel(api1, db, "SQL")
+Rel(api2, db, "SQL")
+
+SHOW_LEGEND()
+@enduml
+----
+
+== Cross-cutting Concepts
+
+=== Logging and Monitoring
+
+* Structured logging with Winston
+* Metrics with Prometheus
+* Tracing with Jaeger
+* Health checks for all services
+
+=== Security
+
+* HTTPS for all connections
+* OAuth 2.0 for authentication
+* RBAC for authorization
+* Input validation and sanitization
+
+== Architecture Decisions
+
+=== ADR-001: Use of PostgreSQL
+
+**Status:** Accepted
+
+**Context:** We need a database for storing user data and geo-information.
+
+**Decision:** PostgreSQL will be used as the primary database.
+
+**Rationale:** 
+* Excellent PostGIS extension for geo-data
+* ACID compliance
+* Good performance
+* Open source
+
+== Risks and Technical Debt
+
+[cols="1,2,2,1"]
+|===
+|Risk |Description |Mitigation |Priority
+
+|Vendor Lock-in
+|Dependency on AWS services
+|Introduce abstraction layers
+|Medium
+
+|Performance
+|Slow map rendering
+|Implement caching strategies
+|High
+
+|Scaling
+|Database bottleneck
+|Introduce read replicas
+|Medium
+|===
+
+== Glossary
+
+[cols="1,2"]
+|===
+|Term |Definition
+
+|Trail
+|A route or path that can be tracked or shared by users
+
+|POI
+|Point of Interest - interesting points along a trail
+
+|GPX
+|GPS Exchange Format - standard for GPS data
+|===

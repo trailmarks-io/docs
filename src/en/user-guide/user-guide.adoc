@@ -1,0 +1,118 @@
+= User Guide: Trailmarks.io
+:doctype: book
+:toc: left
+:toclevels: 3
+:sectanchors:
+:sectlinks:
+:sectnums:
+
+== Introduction
+
+Welcome to Trailmarks.io! This application helps you plan, track, and share your outdoor adventures.
+
+== Getting Started
+
+=== Creating an Account
+
+. Visit https://trailmarks.io
+. Click "Sign Up"
+. Fill out the registration form
+. Confirm your email address
+. Log in
+
+=== Dashboard Overview
+
+After logging in, you'll see your personal dashboard with:
+
+* **My Trails**: Your saved routes
+* **Activities**: Recent activities
+* **Favorites**: Your favorite trails
+* **Statistics**: Your trail statistics
+
+== Trail Management
+
+=== Creating a New Trail
+
+. Click "New Trail"
+. Enter a name and description
+. Select the trail category (Hiking, Cycling, etc.)
+. Plan your route on the map
+. Save the trail
+
+=== Editing a Trail
+
+. Open your trail
+. Click "Edit"
+. Make your changes
+. Save the changes
+
+=== Sharing a Trail
+
+. Open the desired trail
+. Click "Share"
+. Choose your preferred sharing option:
+  * **Public**: Visible to everyone
+  * **Share Link**: Accessible only with link
+  * **Private**: Visible only to you
+
+== Navigation and Maps
+
+=== Map View
+
+The map view offers different layers:
+
+* **Standard**: Basic map
+* **Satellite**: Satellite imagery
+* **Terrain**: Topographic map
+* **Hybrid**: Combination of satellite and roads
+
+=== GPS Tracking
+
+. Enable GPS in your browser settings
+. Start tracking in the app
+. Follow your planned route
+. End tracking after completion
+
+== Advanced Features
+
+=== POI (Points of Interest)
+
+Add interesting points to your trails:
+
+. Click on the map
+. Select "Add POI"
+. Enter name and description
+. Choose a category (Restaurant, Viewpoint, etc.)
+
+=== Offline Usage
+
+. Download trails for offline use
+. Enable offline mode
+. Use the app without internet connection
+
+== Troubleshooting
+
+=== Common Issues
+
+**GPS not working**
+* Check your browser permissions
+* Make sure you're outdoors
+* Try refreshing the page
+
+**Map not loading**
+* Check your internet connection
+* Clear browser cache
+* Try a different browser
+
+**Trail not saving**
+* Check your internet connection
+* Make sure you're logged in
+* Contact support if problems persist
+
+== Support and Contact
+
+For additional help, contact:
+
+* **Email**: support@trailmarks.io
+* **Community Forum**: https://community.trailmarks.io
+* **GitHub Issues**: https://github.com/trailmarks-io/docs/issues

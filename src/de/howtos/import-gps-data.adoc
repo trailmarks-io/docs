@@ -1,0 +1,83 @@
+= How-To: Trail mit GPS-Daten importieren
+:doctype: article
+:toc: left
+
+== Übersicht
+
+Diese Anleitung zeigt Ihnen, wie Sie bestehende GPS-Daten (GPX-Dateien) in Trailmarks.io importieren können.
+
+== Voraussetzungen
+
+* Trailmarks.io-Konto
+* GPX-Datei von Ihrem GPS-Gerät oder einer anderen Anwendung
+
+== Schritt-für-Schritt Anleitung
+
+=== Schritt 1: GPX-Datei vorbereiten
+
+. Stellen Sie sicher, dass Ihre GPX-Datei korrekt formatiert ist
+. Die Datei sollte Trackpoints mit Koordinaten enthalten
+. Maximale Dateigröße: 10 MB
+
+=== Schritt 2: Import starten
+
+. Melden Sie sich bei Trailmarks.io an
+. Gehen Sie zu "Meine Trails"
+. Klicken Sie auf "Trail importieren"
+. Wählen Sie "GPX-Datei hochladen"
+
+=== Schritt 3: Datei hochladen
+
+. Klicken Sie auf "Datei auswählen"
+. Navigieren Sie zu Ihrer GPX-Datei
+. Wählen Sie die Datei aus
+. Klicken Sie auf "Hochladen"
+
+=== Schritt 4: Import-Einstellungen
+
+. **Name**: Geben Sie einen Namen für den Trail ein
+. **Beschreibung**: Fügen Sie eine Beschreibung hinzu
+. **Kategorie**: Wählen Sie die passende Kategorie
+. **Sichtbarkeit**: Legen Sie fest, wer den Trail sehen kann
+
+=== Schritt 5: Vorschau und Bestätigung
+
+. Überprüfen Sie die Routenvorschau auf der Karte
+. Kontrollieren Sie die Statistiken (Distanz, Höhenmeter)
+. Klicken Sie auf "Import bestätigen"
+
+== Tipps und Tricks
+
+* **Dateigröße reduzieren**: Verwenden Sie GPS-Tools, um Trackpoints zu reduzieren
+* **Metadaten**: GPX-Dateien mit Metadaten (Name, Beschreibung) werden automatisch übernommen
+* **Mehrere Tracks**: GPX-Dateien mit mehreren Tracks werden als separate Trails importiert
+
+== Fehlerbehebung
+
+=== Häufige Probleme
+
+**"Ungültige GPX-Datei"**
+* Überprüfen Sie das GPX-Format
+* Stellen Sie sicher, dass die Datei nicht beschädigt ist
+* Verwenden Sie einen GPX-Validator
+
+**"Datei zu groß"**
+* Reduzieren Sie die Anzahl der Trackpoints
+* Teilen Sie große Tracks in kleinere Abschnitte
+
+**"Keine Koordinaten gefunden"**
+* Stellen Sie sicher, dass die GPX-Datei Trackpoints enthält
+* Überprüfen Sie, ob Lat/Lon-Koordinaten vorhanden sind
+
+== Unterstützte Formate
+
+* **GPX 1.1** (empfohlen)
+* **GPX 1.0**
+* **TCX** (Garmin Training Center)
+* **KML** (Google Earth)
+
+== Weitere Ressourcen
+
+* link:export-trail-data.html[Trail-Daten exportieren]
+* link:../faq/gps-troubleshooting.html[GPS-Problembehandlung]
+* link:../user-guide/user-guide.html[Vollständiges Benutzerhandbuch]

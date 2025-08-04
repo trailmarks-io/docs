@@ -1,0 +1,83 @@
+= How-To: Import Trail with GPS Data
+:doctype: article
+:toc: left
+
+== Overview
+
+This guide shows you how to import existing GPS data (GPX files) into Trailmarks.io.
+
+== Prerequisites
+
+* Trailmarks.io account
+* GPX file from your GPS device or another application
+
+== Step-by-Step Guide
+
+=== Step 1: Prepare GPX File
+
+. Ensure your GPX file is correctly formatted
+. The file should contain track points with coordinates
+. Maximum file size: 10 MB
+
+=== Step 2: Start Import
+
+. Log in to Trailmarks.io
+. Go to "My Trails"
+. Click "Import Trail"
+. Select "Upload GPX File"
+
+=== Step 3: Upload File
+
+. Click "Choose File"
+. Navigate to your GPX file
+. Select the file
+. Click "Upload"
+
+=== Step 4: Import Settings
+
+. **Name**: Enter a name for the trail
+. **Description**: Add a description
+. **Category**: Choose the appropriate category
+. **Visibility**: Set who can see the trail
+
+=== Step 5: Preview and Confirmation
+
+. Review the route preview on the map
+. Check the statistics (distance, elevation)
+. Click "Confirm Import"
+
+== Tips and Tricks
+
+* **Reduce file size**: Use GPS tools to reduce track points
+* **Metadata**: GPX files with metadata (name, description) are automatically adopted
+* **Multiple tracks**: GPX files with multiple tracks are imported as separate trails
+
+== Troubleshooting
+
+=== Common Issues
+
+**"Invalid GPX file"**
+* Check the GPX format
+* Ensure the file is not corrupted
+* Use a GPX validator
+
+**"File too large"**
+* Reduce the number of track points
+* Split large tracks into smaller sections
+
+**"No coordinates found"**
+* Ensure the GPX file contains track points
+* Check if lat/lon coordinates are present
+
+== Supported Formats
+
+* **GPX 1.1** (recommended)
+* **GPX 1.0**
+* **TCX** (Garmin Training Center)
+* **KML** (Google Earth)
+
+== Additional Resources
+
+* link:export-trail-data.html[Export Trail Data]
+* link:../faq/gps-troubleshooting.html[GPS Troubleshooting]
+* link:../user-guide/user-guide.html[Complete User Guide]

@@ -1,0 +1,158 @@
+= Häufig gestellte Fragen (FAQ)
+:doctype: book
+:toc: left
+:toclevels: 3
+:sectanchors:
+:sectlinks:
+
+== Allgemeine Fragen
+
+=== Was ist Trailmarks.io?
+
+Trailmarks.io ist eine Webanwendung zum Planen, Verfolgen und Teilen von Outdoor-Routen wie Wanderwegen, Fahrradtouren und anderen Trails.
+
+=== Ist Trailmarks.io kostenlos?
+
+Ja, die Grundfunktionen von Trailmarks.io sind kostenlos verfügbar. Premium-Features sind für registrierte Benutzer verfügbar.
+
+=== Welche Geräte werden unterstützt?
+
+Trailmarks.io funktioniert auf:
+
+* Desktop-Browsern (Chrome, Firefox, Safari, Edge)
+* Mobilen Browsern (iOS Safari, Android Chrome)
+* Progressive Web App (PWA) für mobile Geräte
+
+== Konto und Anmeldung
+
+=== Wie erstelle ich ein Konto?
+
+. Besuchen Sie https://trailmarks.io
+. Klicken Sie auf "Registrieren"
+. Geben Sie E-Mail und Passwort ein
+. Bestätigen Sie Ihre E-Mail-Adresse
+. Melden Sie sich an
+
+=== Ich habe mein Passwort vergessen
+
+. Gehen Sie zur Anmeldeseite
+. Klicken Sie auf "Passwort vergessen"
+. Geben Sie Ihre E-Mail-Adresse ein
+. Folgen Sie den Anweisungen in der E-Mail
+
+=== Kann ich mein Konto löschen?
+
+Ja, Sie können Ihr Konto in den Kontoeinstellungen löschen. Beachten Sie, dass alle Ihre Daten dauerhaft gelöscht werden.
+
+== Trail-Management
+
+=== Wie viele Trails kann ich erstellen?
+
+Kostenlose Konten können bis zu 10 Trails erstellen. Premium-Konten haben keine Begrenzung.
+
+=== Kann ich Trails privat halten?
+
+Ja, Sie können die Sichtbarkeit jedes Trails individuell einstellen:
+
+* **Öffentlich**: Für alle sichtbar
+* **Unlisted**: Nur mit direktem Link zugänglich
+* **Privat**: Nur für Sie sichtbar
+
+=== Welche Dateiformate werden unterstützt?
+
+* **GPX** (GPS Exchange Format)
+* **TCX** (Training Center XML)
+* **KML** (Keyhole Markup Language)
+* **FIT** (Flexible and Interoperable Data Transfer)
+
+== GPS und Navigation
+
+=== Warum funktioniert GPS nicht?
+
+Häufige Ursachen:
+
+* GPS-Berechtigung nicht erteilt
+* Schwaches GPS-Signal (in Gebäuden)
+* Browser-Cache-Probleme
+* Veralteter Browser
+
+**Lösungen:**
+. Berechtigung in den Browser-Einstellungen überprüfen
+. Im Freien versuchen
+. Browser-Cache leeren
+. Browser aktualisieren
+
+=== Wie genau ist das GPS-Tracking?
+
+Die GPS-Genauigkeit hängt von verschiedenen Faktoren ab:
+
+* **Optimale Bedingungen**: 3-5 Meter Genauigkeit
+* **Städtische Gebiete**: 5-10 Meter (Gebäude-Interferenz)
+* **Bewaldete Gebiete**: 10-20 Meter (Baum-Interferenz)
+
+=== Kann ich offline navigieren?
+
+Ja, Sie können Trails für die Offline-Nutzung herunterladen. Die Offline-Navigation funktioniert mit vorher geladenen Kartendaten.
+
+== Technische Probleme
+
+=== Die Seite lädt nicht
+
+. Überprüfen Sie Ihre Internetverbindung
+. Leeren Sie den Browser-Cache
+. Deaktivieren Sie Browser-Erweiterungen temporär
+. Versuchen Sie einen anderen Browser
+
+=== Trails werden nicht angezeigt
+
+. Aktualisieren Sie die Seite
+. Überprüfen Sie Ihre Filtereinstellungen
+. Stellen Sie sicher, dass Sie angemeldet sind
+. Kontaktieren Sie den Support
+
+=== Upload-Probleme
+
+Wenn Datei-Uploads fehlschlagen:
+
+. Überprüfen Sie die Dateigröße (max. 10 MB)
+. Stellen Sie sicher, dass das Dateiformat unterstützt wird
+. Versuchen Sie es mit einer anderen Datei
+. Überprüfen Sie Ihre Internetverbindung
+
+== Datenschutz und Sicherheit
+
+=== Wie werden meine Daten geschützt?
+
+* Alle Daten werden verschlüsselt übertragen (HTTPS)
+* Passwörter werden sicher gespeichert (Hashing)
+* Keine Weitergabe an Dritte ohne Ihre Zustimmung
+* DSGVO-konform
+
+=== Kann ich meine Daten exportieren?
+
+Ja, Sie können alle Ihre Trail-Daten in verschiedenen Formaten exportieren:
+
+* GPX für GPS-Geräte
+* JSON für Entwickler
+* CSV für Tabellenkalkulation
+
+== Support
+
+=== Wie kontaktiere ich den Support?
+
+* **E-Mail**: support@trailmarks.io
+* **Community Forum**: https://community.trailmarks.io
+* **GitHub Issues**: https://github.com/trailmarks-io/docs/issues
+
+=== Wie melde ich Bugs?
+
+. Gehen Sie zu unserem GitHub Repository
+. Erstellen Sie ein neues Issue
+. Beschreiben Sie das Problem detailliert
+. Fügen Sie Screenshots hinzu, falls hilfreich
+
+=== Wo finde ich weitere Dokumentation?
+
+* link:../user-guide/user-guide.html[Vollständiges Benutzerhandbuch]
+* link:../howtos/[How-To Anleitungen]
+* link:../architecture/[Technische Dokumentation]
