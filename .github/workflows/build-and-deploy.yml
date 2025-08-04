@@ -35,6 +35,14 @@ jobs:
       with:
         node-version: '18'
         
+    - name: Install npm dependencies
+      run: |
+        npm install
+        
+    - name: Build TailwindCSS
+      run: |
+        npx tailwindcss -i ./assets/css/input.css -o ./assets/css/tailwind.css
+        
     - name: Install PlantUML
       run: |
         sudo apt-get update

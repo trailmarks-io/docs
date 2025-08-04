@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom components */
+@layer components {
+  .sidebar-nav-link {
+    @apply block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-md transition-colors duration-150;
+  }
+  
+  .sidebar-nav-link.active {
+    @apply bg-primary-100 text-primary-800 font-medium;
+  }
+  
+  .main-nav-link {
+    @apply text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-150;
+  }
+  
+  .main-nav-link.active {
+    @apply text-primary-600 font-semibold;
+  }
+}

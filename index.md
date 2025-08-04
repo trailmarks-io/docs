@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Trailmarks.io Dokumentation
 lang: de
 ---
@@ -10,22 +10,22 @@ Trailmarks.io ist eine innovative Anwendung für das Tracking und Management von
 
 ## Dokumentationsbereiche
 
-### 📖 [Benutzerhandbuch](/user-guide/)
+### 📖 [Benutzerhandbuch]({{ site.baseurl }}/user-guide/)
 Vollständige Anleitung zur Nutzung von Trailmarks.io, einschließlich Installation, Konfiguration und täglicher Nutzung.
 
-### 🏗️ [Architektur](/architecture/)
+### 🏗️ [Architektur]({{ site.baseurl }}/architecture/)
 Technische Architektur-Dokumentation nach dem ARC42-Standard mit C4-Modell Visualisierungen.
 
-### 🛠️ [How-Tos](/howtos/)
+### 🛠️ [How-Tos]({{ site.baseurl }}/howtos/)
 Schritt-für-Schritt Anleitungen für spezifische Aufgaben und Anwendungsfälle.
 
-### ❓ [FAQ](/faq/)
+### ❓ [FAQ]({{ site.baseurl }}/faq/)
 Häufig gestellte Fragen und deren Antworten.
 
 ## Sprachauswahl
 
 - 🇩🇪 **Deutsch** (aktuelle Sprache)
-- 🇺🇸 [English](/en/)
+- 🇺🇸 [English]({{ site.baseurl }}/en/)
 
 ## Mitwirken
 
