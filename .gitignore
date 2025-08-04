@@ -6,7 +6,6 @@ _site/
 vendor/
 
 # AsciiDoc conversion temporary files
-*.html
 temp.html
 
 # Documentation build outputs

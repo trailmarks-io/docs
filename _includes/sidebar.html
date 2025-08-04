@@ -1,0 +1,97 @@
+{% assign current_lang = page.lang | default: site.default_lang | default: 'de' %}
+
+{% if current_lang == 'en' %}
+  <!-- English Navigation -->
+  <div class="mb-6">
+    <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-3">Navigation</h3>
+    <ul class="space-y-1">
+      <li>
+        <a href="{{ '/en/' | relative_url }}" 
+           class="sidebar-nav-link {% if page.url == '/en/' or page.url == '/en/index.html' %}active{% endif %}">
+          🏠 Home
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/en/user-guide/' | relative_url }}" 
+           class="sidebar-nav-link {% if page.url contains '/en/user-guide/' %}active{% endif %}">
+          📖 User Guide
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/en/architecture/' | relative_url }}" 
+           class="sidebar-nav-link {% if page.url contains '/en/architecture/' %}active{% endif %}">
+          🏗️ Architecture
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/en/howtos/' | relative_url }}" 
+           class="sidebar-nav-link {% if page.url contains '/en/howtos/' %}active{% endif %}">
+          🛠️ How-To Guides
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/en/faq/' | relative_url }}" 
+           class="sidebar-nav-link {% if page.url contains '/en/faq/' %}active{% endif %}">
+          ❓ FAQ
+        </a>
+      </li>
+    </ul>
+  </div>
+{% else %}
+  <!-- German Navigation -->
+  <div class="mb-6">
+    <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-3">Navigation</h3>
+    <ul class="space-y-1">
+      <li>
+        <a href="{{ '/' | relative_url }}" 
+           class="sidebar-nav-link {% if page.url == '/' or page.url == '/index.html' %}active{% endif %}">
+          🏠 Startseite
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/user-guide/' | relative_url }}" 
+           class="sidebar-nav-link {% if page.url contains '/user-guide/' %}active{% endif %}">
+          📖 Benutzerhandbuch
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/architecture/' | relative_url }}" 
+           class="sidebar-nav-link {% if page.url contains '/architecture/' %}active{% endif %}">
+          🏗️ Architektur
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/howtos/' | relative_url }}" 
+           class="sidebar-nav-link {% if page.url contains '/howtos/' %}active{% endif %}">
+          🛠️ How-To Anleitungen
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/faq/' | relative_url }}" 
+           class="sidebar-nav-link {% if page.url contains '/faq/' %}active{% endif %}">
+          ❓ FAQ
+        </a>
+      </li>
+    </ul>
+  </div>
+{% endif %}
+
+<!-- Additional Links -->
+<div class="border-t border-gray-200 pt-4 mt-6">
+  <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-3">Links</h3>
+  <ul class="space-y-1">
+    <li>
+      <a href="https://github.com/trailmarks-io/docs" 
+         target="_blank" 
+         class="sidebar-nav-link">
+        🔗 GitHub Repository
+      </a>
+    </li>
+    <li>
+      <a href="/demo.html" 
+         class="sidebar-nav-link {% if page.url == '/demo.html' %}active{% endif %}">
+        🎯 Demo
+      </a>
+    </li>
+  </ul>
+</div>
