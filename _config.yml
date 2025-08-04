@@ -1,7 +1,7 @@
 # Jekyll Configuration for Trailmarks.io Documentation
 title: Trailmarks.io Documentation
 description: Technical and User Documentation for Trailmarks.io Application
-baseurl: ""
+baseurl: "/docs"
 url: "https://trailmarks-io.github.io"
 
 # Build settings

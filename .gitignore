@@ -13,8 +13,16 @@ temp.html
 docs/de/
 docs/en/
 
-# Node modules (if any)
+# Node modules and npm
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# TailwindCSS build output
+assets/css/tailwind.css
 
 # Logs
 *.log
