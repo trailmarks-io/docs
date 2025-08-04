@@ -8,47 +8,13 @@ url: "https://trailmarks-io.github.io"
 markdown: kramdown
 highlighter: rouge
 theme: minima
-
-# Collections for different document types
-collections:
-  architecture:
-    output: true
-    permalink: /:collection/:name/
-  user-guide:
-    output: true
-    permalink: /:collection/:name/
-  howtos:
-    output: true
-    permalink: /:collection/:name/
-  faq:
-    output: true
-    permalink: /:collection/:name/
+destination: dist
 
 # Default settings
 defaults:
   - scope:
       path: ""
-      type: "posts"
-    values:
-      layout: "post"
-  - scope:
-      path: ""
-      type: "architecture"
-    values:
-      layout: "page"
-  - scope:
-      path: ""
-      type: "user-guide"
-    values:
-      layout: "page"
-  - scope:
-      path: ""
-      type: "howtos"
-    values:
-      layout: "page"
-  - scope:
-      path: ""
-      type: "faq"
+      type: "pages"
     values:
       layout: "page"
 

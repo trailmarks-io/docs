@@ -178,44 +178,46 @@ jobs:
           fi
         done
         
-    - name: Create Jekyll collections
+    - name: Create Jekyll directory structure
       run: |
-        # Create collection files for Jekyll
+        # Create directory-based structure that matches navigation expectations
         
-        # German collections
-        mkdir -p _architecture _user-guide _howtos _faq
+        # Create German index pages
+        mkdir -p architecture user-guide howtos faq
         
         if [ -f "docs/de/architecture/arc42-documentation.md" ]; then
-          cp "docs/de/architecture/arc42-documentation.md" "_architecture/arc42-documentation-de.md"
+          cp "docs/de/architecture/arc42-documentation.md" "architecture/index.md"
         fi
         
         if [ -f "docs/de/user-guide/user-guide.md" ]; then
-          cp "docs/de/user-guide/user-guide.md" "_user-guide/user-guide-de.md"
+          cp "docs/de/user-guide/user-guide.md" "user-guide/index.md"
         fi
         
         if [ -f "docs/de/howtos/import-gps-data.md" ]; then
-          cp "docs/de/howtos/import-gps-data.md" "_howtos/import-gps-data-de.md"
+          cp "docs/de/howtos/import-gps-data.md" "howtos/index.md"
         fi
         
         if [ -f "docs/de/faq/general-faq.md" ]; then
-          cp "docs/de/faq/general-faq.md" "_faq/general-faq-de.md"
+          cp "docs/de/faq/general-faq.md" "faq/index.md"
         fi
         
-        # English collections
+        # Create English index pages
+        mkdir -p en/architecture en/user-guide en/howtos en/faq
+        
         if [ -f "docs/en/architecture/arc42-documentation.md" ]; then
-          cp "docs/en/architecture/arc42-documentation.md" "_architecture/arc42-documentation-en.md"
+          cp "docs/en/architecture/arc42-documentation.md" "en/architecture/index.md"
         fi
         
         if [ -f "docs/en/user-guide/user-guide.md" ]; then
-          cp "docs/en/user-guide/user-guide.md" "_user-guide/user-guide-en.md"
+          cp "docs/en/user-guide/user-guide.md" "en/user-guide/index.md"
         fi
         
         if [ -f "docs/en/howtos/import-gps-data.md" ]; then
-          cp "docs/en/howtos/import-gps-data.md" "_howtos/import-gps-data-en.md"
+          cp "docs/en/howtos/import-gps-data.md" "en/howtos/index.md"
         fi
         
         if [ -f "docs/en/faq/general-faq.md" ]; then
-          cp "docs/en/faq/general-faq.md" "_faq/general-faq-en.md"
+          cp "docs/en/faq/general-faq.md" "en/faq/index.md"
         fi
         
     - name: Setup Pages
@@ -225,10 +227,12 @@ jobs:
       uses: actions/jekyll-build-pages@v1
       with:
         source: ./
-        destination: ./_site
+        destination: ./dist
         
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./dist
 
   deploy:
     environment:
