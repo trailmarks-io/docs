@@ -13,6 +13,16 @@ temp.html
 docs/de/
 docs/en/
 
+# Generated markdown files (should only exist during build)
+architecture/index.md
+user-guide/index.md
+howtos/index.md
+faq/index.md
+en/architecture/index.md
+en/user-guide/index.md
+en/howtos/index.md
+en/faq/index.md
+
 # Node modules and npm
 node_modules/
 npm-debug.log*
